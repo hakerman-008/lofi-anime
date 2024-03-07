@@ -33,7 +33,10 @@ function sendNextVideo(res) {
 
 app.get('/kshitiz', (req, res) => {
     if (allVideos.length === 0) {
-        fs.readdir(path.join('.', 'videos'), (err, files) => {
+        const videosFolderPath = path.join('.', 'videos');
+        console.log('Videos folder path:', videosFolderPath); // Add this line for debugging
+
+        fs.readdir(videosFolderPath, (err, files) => {
             if (err) {
                 console.error('Error reading videos folder:', err);
                 return res.status(500).json({ error: 'Internal Server Error' });
