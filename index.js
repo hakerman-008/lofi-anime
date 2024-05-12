@@ -30,7 +30,9 @@ function sendNextVideo(res) {
         videoIndex = (videoIndex + 1) % allVideos.length; 
     });
 }
-
+app.get('/', (req, res) => {
+  res.send('lofi anime videos');
+});
 app.get('/kshitiz', (req, res) => {
     if (allVideos.length === 0) {
         const videosFolderPath = path.join('.', 'videos');
